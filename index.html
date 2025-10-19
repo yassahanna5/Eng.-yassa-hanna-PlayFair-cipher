@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,70 +15,65 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             overflow: hidden;
         }
         
         .header {
             background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            padding: 30px;
+            padding: 25px 20px;
             text-align: center;
         }
         
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 8px;
         }
         
         .header p {
             opacity: 0.9;
-            font-size: 1.1em;
+            font-size: 1em;
         }
         
         .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            padding: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
         }
         
         .input-section, .output-section {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             border: 1px solid #e9ecef;
+            width: 100%;
         }
         
         .section-title {
             color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-size: 1.3em;
             border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
             color: #495057;
         }
@@ -88,8 +83,9 @@
             padding: 12px;
             border: 2px solid #e9ecef;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             transition: border-color 0.3s;
+            font-family: inherit;
         }
         
         textarea:focus, input[type="text"]:focus {
@@ -104,19 +100,20 @@
         
         .button-group {
             display: flex;
+            flex-direction: column;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
         button {
-            padding: 12px 25px;
+            padding: 15px 20px;
             border: none;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            flex: 1;
+            width: 100%;
         }
         
         .btn-encrypt {
@@ -152,10 +149,12 @@
             border-radius: 8px;
             padding: 15px;
             margin-top: 10px;
-            min-height: 150px;
+            min-height: 120px;
             font-family: 'Courier New', monospace;
             white-space: pre-wrap;
             overflow-y: auto;
+            font-size: 14px;
+            line-height: 1.4;
         }
         
         .matrix-display {
@@ -165,6 +164,9 @@
             border-radius: 8px;
             font-family: 'Courier New', monospace;
             margin-top: 10px;
+            font-size: 12px;
+            line-height: 1.4;
+            overflow-x: auto;
         }
         
         .process-display {
@@ -177,6 +179,8 @@
             white-space: pre-wrap;
             max-height: 200px;
             overflow-y: auto;
+            font-size: 12px;
+            line-height: 1.4;
         }
         
         .success {
@@ -186,6 +190,108 @@
         
         .info {
             color: #3498db;
+        }
+        
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* تحسينات للشاشات المتوسطة والكبيرة */
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+            
+            .input-section, .output-section {
+                flex: 1;
+            }
+            
+            .button-group {
+                flex-direction: row;
+            }
+            
+            button {
+                width: auto;
+                flex: 1;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .header p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .content {
+                gap: 30px;
+                padding: 30px;
+            }
+            
+            .input-section, .output-section {
+                padding: 25px;
+            }
+        }
+
+        /* تحسينات لللمس على الهواتف */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .content {
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .input-section, .output-section {
+                padding: 15px;
+            }
+            
+            button {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .output-display,
+            .matrix-display,
+            .process-display {
+                font-size: 12px;
+                padding: 12px;
+            }
+        }
+
+        /* تحسينات إضافية للواجهة */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+            color: #3498db;
+        }
+
+        .copy-btn {
+            background: #9b59b6;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .copy-btn:hover {
+            background: #8e44ad;
         }
     </style>
 </head>
@@ -215,6 +321,10 @@
                     <button class="btn-decrypt" onclick="decrypt()">Decrypt</button>
                     <button class="btn-clear" onclick="clearAll()">Clear All</button>
                 </div>
+                
+                <div id="loading" class="loading">
+                    Processing...
+                </div>
             </div>
             
             <div class="output-section">
@@ -233,6 +343,7 @@
                 <div class="form-group">
                     <label>Result:</label>
                     <div id="outputDisplay" class="output-display">Result will appear here...</div>
+                    <button class="copy-btn" onclick="copyResult()">Copy Result</button>
                 </div>
             </div>
         </div>
@@ -374,6 +485,14 @@
 
         const cipher = new PlayfairCipher();
 
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
         function encrypt() {
             const plaintext = document.getElementById('inputText').value;
             const key = document.getElementById('key').value;
@@ -383,39 +502,47 @@
                 return;
             }
             
-            try {
-                const matrix = cipher.createMatrix(key);
-                const { prepared } = cipher.prepareText(plaintext, true);
-                
-                // Display matrix
-                let matrixText = 'Playfair Matrix (5x5):\n';
-                matrix.forEach(row => {
-                    matrixText += row.join(' ') + '\n';
-                });
-                document.getElementById('matrixDisplay').textContent = matrixText;
-                
-                // Process encryption
-                let cipherPairs = [];
-                let processText = 'Encryption Process:\n';
-                processText += `Prepared digraphs: [${prepared.join(', ')}]\n\n`;
-                
-                prepared.forEach(pair => {
-                    const encryptedPair = cipher.encryptPair(pair);
-                    cipherPairs.push(encryptedPair);
-                    processText += `${pair} → ${encryptedPair}\n`;
-                });
-                
-                const ciphertext = cipherPairs.join('');
-                
-                // Display process and results
-                document.getElementById('processDisplay').textContent = processText;
-                document.getElementById('outputDisplay').innerHTML = 
-                    `<span class="info">Cipher pairs: [${cipherPairs.join(', ')}]</span>\n` +
-                    `<span class="success">✅ Ciphertext: ${ciphertext}</span>`;
+            showLoading();
+            
+            // استخدام setTimeout لإعطاء وقت لظهور loading
+            setTimeout(() => {
+                try {
+                    const matrix = cipher.createMatrix(key);
+                    const { prepared } = cipher.prepareText(plaintext, true);
                     
-            } catch (error) {
-                alert('Encryption failed: ' + error.message);
-            }
+                    // Display matrix
+                    let matrixText = 'Playfair Matrix (5x5):\n';
+                    matrix.forEach(row => {
+                        matrixText += row.join(' ') + '\n';
+                    });
+                    document.getElementById('matrixDisplay').textContent = matrixText;
+                    
+                    // Process encryption
+                    let cipherPairs = [];
+                    let processText = 'Encryption Process:\n';
+                    processText += `Prepared digraphs: [${prepared.join(', ')}]\n\n`;
+                    
+                    prepared.forEach(pair => {
+                        const encryptedPair = cipher.encryptPair(pair);
+                        cipherPairs.push(encryptedPair);
+                        processText += `${pair} → ${encryptedPair}\n`;
+                    });
+                    
+                    const ciphertext = cipherPairs.join('');
+                    
+                    // Display process and results
+                    document.getElementById('processDisplay').textContent = processText;
+                    document.getElementById('outputDisplay').innerHTML = 
+                        `<span class="info">Cipher pairs: [${cipherPairs.join(', ')}]</span>\n` +
+                        `<span class="success">✅ Ciphertext: ${ciphertext}</span>`;
+                        
+                } catch (error) {
+                    document.getElementById('outputDisplay').innerHTML = 
+                        `<span class="error">❌ Encryption failed: ${error.message}</span>`;
+                } finally {
+                    hideLoading();
+                }
+            }, 100);
         }
 
         function decrypt() {
@@ -427,43 +554,50 @@
                 return;
             }
             
-            try {
-                const matrix = cipher.createMatrix(key);
-                const { prepared } = cipher.prepareText(ciphertext, false);
-                
-                // Display matrix
-                let matrixText = 'Playfair Matrix (5x5):\n';
-                matrix.forEach(row => {
-                    matrixText += row.join(' ') + '\n';
-                });
-                document.getElementById('matrixDisplay').textContent = matrixText;
-                
-                // Process decryption
-                let decryptedPairs = [];
-                let decryptedChars = [];
-                let processText = 'Decryption Process:\n';
-                processText += `Prepared digraphs: [${prepared.join(', ')}]\n\n`;
-                
-                prepared.forEach(pair => {
-                    const decryptedPair = cipher.decryptPair(pair);
-                    decryptedPairs.push(decryptedPair);
-                    decryptedChars.push(...decryptedPair);
-                    processText += `${pair} → ${decryptedPair}\n`;
-                });
-                
-                const finalChars = cipher.removeExtraX(decryptedChars);
-                const plaintext = finalChars.join('');
-                
-                // Display process and results
-                document.getElementById('processDisplay').textContent = processText;
-                document.getElementById('outputDisplay').innerHTML = 
-                    `<span class="info">Decrypted pairs: [${decryptedPairs.join(', ')}]</span>\n` +
-                    `<span class="info">Decrypted (raw): ${decryptedChars.join('')}</span>\n` +
-                    `<span class="success">✅ Plaintext: ${plaintext}</span>`;
+            showLoading();
+            
+            setTimeout(() => {
+                try {
+                    const matrix = cipher.createMatrix(key);
+                    const { prepared } = cipher.prepareText(ciphertext, false);
                     
-            } catch (error) {
-                alert('Decryption failed: ' + error.message);
-            }
+                    // Display matrix
+                    let matrixText = 'Playfair Matrix (5x5):\n';
+                    matrix.forEach(row => {
+                        matrixText += row.join(' ') + '\n';
+                    });
+                    document.getElementById('matrixDisplay').textContent = matrixText;
+                    
+                    // Process decryption
+                    let decryptedPairs = [];
+                    let decryptedChars = [];
+                    let processText = 'Decryption Process:\n';
+                    processText += `Prepared digraphs: [${prepared.join(', ')}]\n\n`;
+                    
+                    prepared.forEach(pair => {
+                        const decryptedPair = cipher.decryptPair(pair);
+                        decryptedPairs.push(decryptedPair);
+                        decryptedChars.push(...decryptedPair);
+                        processText += `${pair} → ${decryptedPair}\n`;
+                    });
+                    
+                    const finalChars = cipher.removeExtraX(decryptedChars);
+                    const plaintext = finalChars.join('');
+                    
+                    // Display process and results
+                    document.getElementById('processDisplay').textContent = processText;
+                    document.getElementById('outputDisplay').innerHTML = 
+                        `<span class="info">Decrypted pairs: [${decryptedPairs.join(', ')}]</span>\n` +
+                        `<span class="info">Decrypted (raw): ${decryptedChars.join('')}</span>\n` +
+                        `<span class="success">✅ Plaintext: ${plaintext}</span>`;
+                        
+                } catch (error) {
+                    document.getElementById('outputDisplay').innerHTML = 
+                        `<span class="error">❌ Decryption failed: ${error.message}</span>`;
+                } finally {
+                    hideLoading();
+                }
+            }, 100);
         }
 
         function clearAll() {
@@ -473,6 +607,20 @@
             document.getElementById('processDisplay').textContent = 'Process details will appear here...';
             document.getElementById('outputDisplay').textContent = 'Result will appear here...';
         }
+
+        function copyResult() {
+            const resultText = document.getElementById('outputDisplay').textContent;
+            if (resultText && resultText !== 'Result will appear here...') {
+                navigator.clipboard.writeText(resultText).then(() => {
+                    alert('Result copied to clipboard!');
+                }).catch(() => {
+                    alert('Failed to copy result');
+                });
+            }
+        }
+
+        // تحسينات لللمس
+        document.addEventListener('touchstart', function() {}, {passive: true});
     </script>
 </body>
-</html>
+</html> 
